@@ -10,17 +10,17 @@ public class Login {
 	 * email stores email of user
 	 */
 	@Id
-	@Column(name="Email", nullable = true, length = 50)
+	@Column(name="email", nullable = true, length = 50)
 	private String email;
 	/**
 	 * loginNmae is the login name specified by user
 	 */
-	@Column(name="UserName", nullable = true, length = 50)
+	@Column(name="userName", nullable = true, length = 50)
 	private String userName;
 	/**
 	 * password is the password set by user
 	 */
-	@Column(name="Password", nullable = true, length = 50)
+	@Column(name="password", nullable = true, length = 50)
 	private String password;
 	
 	public Login() {

@@ -33,10 +33,8 @@ public class SignUpController {
 		signUpService.createUser(newSignUp);
 	}
 	
-	@ResponseBody
 	@GetMapping("/readAllUsers")
 	public List<SignUp> readAllUsers() {
-
 		return signUpService.displayAllUser();
 	}
 
@@ -45,11 +43,10 @@ public class SignUpController {
 	public void updateUser(@RequestBody SignUp updateUser) {
 		signUpService.updateUser(updateUser);
 	}
-
+	
 	@GetMapping("/searchUser/{id}")
 //	@ExceptionHandler(RecordNotFoundException.class)
 	public ResponseEntity<?> searchUserByID(@PathVariable("id") Long userId) {
-
 		return signUpService.findUserById(userId);
 	}
 

@@ -1,5 +1,6 @@
 package com.cg.nutritionapp.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,11 +63,11 @@ public class SignUpServiceImpl implements SignUpService{
 	//@Override
 	public List<SignUp> displayAllUser() {
 		// TODO Auto-generated method stub
-		for (SignUp signup:(List<SignUp>) signUpDAO.findAll()) {
-			System.out.println(signup);
-		}
-		
-		return (List<SignUp>) signUpDAO.findAll();
+		List<SignUp> signUp = new ArrayList<SignUp>();
+
+		signUpDAO.findAll().forEach(signUp1 -> signUp.add(signUp1));
+
+        return signUp;
 	}
 
 	//@Override

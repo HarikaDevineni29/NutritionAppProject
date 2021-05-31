@@ -50,7 +50,7 @@ public class SignUp {
 	/**
 	 * loginNmae is the login name specified by user
 	 */
-	@Column(name="userName", length = 50)
+	@Column(name="user_name", length = 50)
 	private String userName;
 	/**
 	 * password is the password set by user
@@ -109,7 +109,7 @@ public class SignUp {
 	private String getUserName() {
 		return userName;
 	}
-	private void setLoginName(String userName) {
+	private void setUserName(String userName) {
 		this.userName = userName;
 	}
 	private String getPassword() {
