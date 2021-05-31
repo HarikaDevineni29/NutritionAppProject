@@ -1,7 +1,5 @@
 package com.cg.nutritionapp.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
@@ -34,11 +32,11 @@ public class SignUpController {
 	}
 	
 	@GetMapping("/readAllUsers")
-	public List<SignUp> readAllUsers() {
+	public Iterable<SignUp> readAllUsers() {
 		return signUpService.displayAllUser();
 	}
 
-	@PutMapping("/updateUser")
+	@PutMapping("/updateUser/{id}")
 //	@ExceptionHandler(RecordNotFoundException.class)
 	public void updateUser(@RequestBody SignUp updateUser) {
 		signUpService.updateUser(updateUser);

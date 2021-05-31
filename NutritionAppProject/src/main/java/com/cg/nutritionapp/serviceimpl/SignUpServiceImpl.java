@@ -61,13 +61,14 @@ public class SignUpServiceImpl implements SignUpService{
 	}
 
 	//@Override
-	public List<SignUp> displayAllUser() {
+	public Iterable<SignUp> displayAllUser() {
 		// TODO Auto-generated method stub
-		List<SignUp> signUp = new ArrayList<SignUp>();
-
-		signUpDAO.findAll().forEach(signUp1 -> signUp.add(signUp1));
-
-        return signUp;
+//		List<SignUp> signUp = new ArrayList<SignUp>();
+//
+//		signUpDAO.findAll().forEach(signUp1 -> signUp.add(signUp1));
+//
+//        return signUp;
+		return signUpDAO.findAll();
 	}
 
 	//@Override

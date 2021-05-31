@@ -5,12 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 public class SignUp {
 	@Id
-	@Column(name="id") @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
+	@Column(name="id") @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	/**
 	 * name is of type String and used to store user's name
@@ -61,71 +63,70 @@ public class SignUp {
 	public Long getId() {
 		return id;
 	}
-	private void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	private String getName() {
+	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
-	private String getContact() {
+	public String getContact() {
 		return contact;
 	}
-	private void setContact(String contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
-	private String getGender() {
+	public String getGender() {
 		return gender;
 	}
-	private void setGender(String gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	private String getDob() {
+	public String getDob() {
 		return dob;
 	}
-	private void setDob(String dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
-	private String getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
-	private void setPhoto(String photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	private String getEmail() {
+	public String getEmail() {
 		return email;
 	}
-	private void setEmail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
-	private String getRole() {
+	public String getRole() {
 		return role;
 	}
-	private void setRole(String role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
-	private String getUserName() {
+	public String getUserName() {
 		return userName;
 	}
-	private void setUserName(String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	private String getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	private void setPassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	
 	public SignUp() {
 		
 	}
-	public SignUp(Long id, String name, String contact, String gender, String dob, String photo, String email,
+	public SignUp(String name, String contact, String gender, String dob, String photo, String email,
 			String role, String userName, String password) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.contact = contact;
 		this.gender = gender;
