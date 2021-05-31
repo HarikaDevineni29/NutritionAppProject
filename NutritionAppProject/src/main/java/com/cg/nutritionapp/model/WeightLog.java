@@ -4,10 +4,12 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class WeightLog {
 	@Column(name = "UserId")
+	@Id
 	private Long userId;
 	/**
 	 * weight is of type double and store weight of user

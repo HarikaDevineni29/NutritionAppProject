@@ -4,59 +4,61 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
 @Entity
 public class SignUp {
-	@Column(name="Id") @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@Column(name="id") @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	/**
 	 * name is of type String and used to store user's name
 	 */
-	@Column(name="Name", nullable = true, length = 50)
+	@Column(name="name", length = 50)
 	private String name;
 	/**
 	 * contact is of type String and store user contact details
 	 */
-	@Column(name="Contact", nullable = true) @Size(min=10,max=10)
+	@Column(name="contact") @Size(min=10,max=10)
 	private String contact;
 	/**
 	 * gender is of type String and stores gender value
 	 */
-	@Column(name="Gender", nullable = true, length = 10)
+	@Column(name="gender",length = 10)
 	private String gender;
 	/**
 	 * dob is Date of Birth and is of type String
 	 */
-	@Column(name="DateOfBirth", nullable = true, length = 25)
+	@Column(name="date_of_birth",length = 25)
 	private String dob;
 	/**
 	 * photo is used to store filename of with jpg/png extension
 	 */
-	@Column(name="Photo")
+	@Column(name="photo")
 	private String photo;
 	/**
 	 * email stores email of user
 	 */
-	@Column(name="Email", nullable = true)
+	@Column(name="email")
 	private String email;
 	/**
 	 * Role specifies whether a user is customer or a dietitian 
 	 */
-	@Column(name="Role", nullable = true, length = 50)
+	@Column(name="role", length = 50)
 	private String role;
 	/**
 	 * loginNmae is the login name specified by user
 	 */
-	@Column(name="UserName", nullable = true, length = 50)
+	@Column(name="userName", length = 50)
 	private String userName;
 	/**
 	 * password is the password set by user
 	 */
-	@Column(name="Password", nullable = true) @Size(min=5, max=10)
+	@Column(name="password") @Size(min=5, max=10)
 	private String password;
 	
-	private Long getId() {
+	public Long getId() {
 		return id;
 	}
 	private void setId(Long id) {

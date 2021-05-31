@@ -2,10 +2,13 @@ package com.cg.nutritionapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+
 
 @Entity
 public class Customer {
 	@Column(name = "Id")
+	@Id
 	private Long userId;
 	/**
 	 * status defines if any user is active or blocked

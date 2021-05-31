@@ -2,12 +2,14 @@ package com.cg.nutritionapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Login {
 	/**
 	 * email stores email of user
 	 */
+	@Id
 	@Column(name="Email", nullable = true, length = 50)
 	private String email;
 	/**
