@@ -5,67 +5,114 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+
+
 
 @Entity
+@Table(name="sign_up")
 public class SignUp {
 	@Id
-	@NotNull
-	@Column(name="id") @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@Column(name="id",unique=true)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
+	@OneToOne
+	@JoinColumn(name = "planId",referencedColumnName = "planId")
+	private NutritionPlan nutritionPlan;
+	public NutritionPlan getNutritionPlan() {
+		return nutritionPlan;
+	}
+	public void setNutritionPlan(NutritionPlan nutritionPlan) {
+		this.nutritionPlan = nutritionPlan;
+	}
 	/**
 	 * name is of type String and used to store user's name
 	 */
-	@Column(name="name", length = 50)
+
+	@OneToOne
+	@JoinColumn(name = "userId",referencedColumnName = "userId")
+	private DietPlan dietplan;
+	
+	
+	public DietPlan getDietplan() {
+		return dietplan;
+	}
+	public void setDietplan(DietPlan dietplan) {
+		this.dietplan = dietplan;
+	}
+	@Column
 	private String name;
 	/**
 	 * contact is of type String and store user contact details
 	 */
-	@Column(name="contact") @Size(min=10,max=10)
+	@Column
 	private String contact;
 	/**
 	 * gender is of type String and stores gender value
 	 */
-	@Column(name="gender",length = 10)
+	@Column
 	private String gender;
 	/**
 	 * dob is Date of Birth and is of type String
 	 */
-	@Column(name="date_of_birth",length = 25)
+	@Column
 	private String dob;
 	/**
 	 * photo is used to store filename of with jpg/png extension
 	 */
-	@Column(name="photo")
+	@Column
 	private String photo;
 	/**
 	 * email stores email of user
 	 */
-	@Column(name="email")
+	@Column
 	private String email;
 	/**
 	 * Role specifies whether a user is customer or a dietitian 
 	 */
-	@Column(name="role", length = 50)
+	@Column
 	private String role;
 	/**
 	 * loginNmae is the login name specified by user
 	 */
-	@Column(name="user_name", length = 50)
+	@Column
 	private String userName;
 	/**
 	 * password is the password set by user
 	 */
-	@Column(name="password") @Size(min=5, max=10)
+	@Column
 	private String password;
-	
-	public Long getId() {
+
+	public SignUp() {
+		
+	}
+	public SignUp(int id,String name, String contact, String gender, String dob, String photo, String email,
+			String role, String userName, String password,NutritionPlan nutritionPlan,DietPlan dietplan) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.contact = contact;
+		this.gender = gender;
+		this.dob = dob;
+		this.photo = photo;
+		this.email = email;
+		this.role = role;
+		this.userName = userName;
+		this.password = password;
+		this.nutritionPlan=nutritionPlan;
+		this.dietplan = dietplan;
+	}
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getName() {
 		return name;
 	}
@@ -120,27 +167,12 @@ public class SignUp {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public SignUp() {
-		
-	}
-	public SignUp(String name, String contact, String gender, String dob, String photo, String email,
-			String role, String userName, String password) {
-		super();
-		this.name = name;
-		this.contact = contact;
-		this.gender = gender;
-		this.dob = dob;
-		this.photo = photo;
-		this.email = email;
-		this.role = role;
-		this.userName = userName;
-		this.password = password;
-	}
 	@Override
 	public String toString() {
 		return "SignUp [id=" + id + ", name=" + name + ", contact=" + contact + ", gender=" + gender + ", dob=" + dob
 				+ ", photo=" + photo + ", email=" + email + ", role=" + role + ", userName=" + userName + ", password="
 				+ password + "]";
 	}
+	
+	
 }

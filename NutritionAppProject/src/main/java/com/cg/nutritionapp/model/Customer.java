@@ -2,106 +2,122 @@ package com.cg.nutritionapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
 public class Customer {
-	@Column(name = "Id")
 	@Id
-	private Long userId;
+	//@NotNull
+	@Column(name="") @GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	/**
 	 * status defines if any user is active or blocked
 	 */
-	@Column(name="Status", nullable = true)
+	@Column(name="", nullable = true)
 	private String status;
 	/**
 	 * intensity is a number which defines the ability to do workout on the scale of 1-10
 	 */
-	@Column(name="Intensity", nullable = true)
+	@Column(name="", nullable = true)
 	private Integer intensity;
 	/**
 	 * goal defines the specific goal set by user or dietitian 
 	 */
-	@Column(name="Goal", nullable = true)
+	@Column(name="", nullable = true)
 	private String goal;
 	/**
 	 * number of hours a person can workout
 	 */
-	@Column(name="WorkoutTime", nullable = true)
+	@Column(name="", nullable = true)
 	private String workOutTime;
 	/**
 	 * time by which user wakes up
 	 */
-	@Column(name="WakeUpTime", nullable = true)
+	@Column(name="", nullable = true)
 	private String wakeUpTime;
 	/**
 	 * time by which user goes to sleep
 	 */
-	@Column(name="SleepTime", nullable = true)
+	@Column(name="", nullable = true)
 	private String sleepTime;
 	/**
 	 * medical condition defines if a user is having any medical conditions or not
 	 */
-	@Column(name="MedicalCondition", nullable = true)
-	private String medicalConditon;
+	@Column(name="", nullable = true)
+	private String medicalCondition;
+	public String getMedicalCondition() {
+		return medicalCondition;
+	}
+	public void setMedicalCondition(String medicalCondition) {
+		this.medicalCondition = medicalCondition;
+	}
 	/**
 	 * this is a String type stores value if a person is allergic to something
 	 */
-	@Column(name="Allergies", nullable = true)
+	@Column(name="", nullable = true)
 	private String allergicTo;
-	private Long getUserId() {
+	
+	@Column(name="", nullable = true)
+	private Long userId;
+	
+	
+	public Long getUserId() {
 		return userId;
 	}
-	private void setUserId(Long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	private String getStatus() {
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getStatus() {
 		return status;
 	}
-	private void setStatus(String status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
-	private Integer getIntensity() {
+	public Integer getIntensity() {
 		return intensity;
 	}
-	private void setIntensity(Integer intensity) {
+	public void setIntensity(Integer intensity) {
 		this.intensity = intensity;
 	}
-	private String getGoal() {
+	public String getGoal() {
 		return goal;
 	}
-	private void setGoal(String goal) {
+	public void setGoal(String goal) {
 		this.goal = goal;
 	}
-	private String getWorkOutTime() {
+	public String getWorkOutTime() {
 		return workOutTime;
 	}
-	private void setWorkOutTime(String workOutTime) {
+	public void setWorkOutTime(String workOutTime) {
 		this.workOutTime = workOutTime;
 	}
-	private String getWakeUpTime() {
+	public String getWakeUpTime() {
 		return wakeUpTime;
 	}
-	private void setWakeUpTime(String wakeUpTime) {
+	public void setWakeUpTime(String wakeUpTime) {
 		this.wakeUpTime = wakeUpTime;
 	}
-	private String getSleepTime() {
+	public String getSleepTime() {
 		return sleepTime;
 	}
-	private void setSleepTime(String sleepTime) {
+	public void setSleepTime(String sleepTime) {
 		this.sleepTime = sleepTime;
 	}
-	private String getMedicalConditon() {
-		return medicalConditon;
-	}
-	private void setMedicalConditon(String medicalConditon) {
-		this.medicalConditon = medicalConditon;
-	}
-	private String getAllergicTo() {
+	
+	public String getAllergicTo() {
 		return allergicTo;
 	}
-	private void setAllergicTo(String allergicTo) {
+	public void setAllergicTo(String allergicTo) {
 		this.allergicTo = allergicTo;
 	}
 	
@@ -109,7 +125,7 @@ public class Customer {
 		
 	}
 	public Customer(Long userId, String status, Integer intensity, String goal, String workOutTime, String wakeUpTime,
-			String sleepTime, String medicalConditon, String allergicTo) {
+			String sleepTime, String medicalCondition, String allergicTo) {
 		super();
 		this.userId = userId;
 		this.status = status;
@@ -118,13 +134,14 @@ public class Customer {
 		this.workOutTime = workOutTime;
 		this.wakeUpTime = wakeUpTime;
 		this.sleepTime = sleepTime;
-		this.medicalConditon = medicalConditon;
+		this.medicalCondition = medicalCondition;
 		this.allergicTo = allergicTo;
+		
 	}
 	@Override
 	public String toString() {
 		return "Customer [userId=" + userId + ", status=" + status + ", intensity=" + intensity + ", goal=" + goal
 				+ ", workOutTime=" + workOutTime + ", wakeUpTime=" + wakeUpTime + ", sleepTime=" + sleepTime
-				+ ", medicalConditon=" + medicalConditon + ", allergicTo=" + allergicTo + "]";
+				+ ", medicalConditon=" + medicalCondition + ", allergicTo=" + allergicTo + "]";
 	}
 }

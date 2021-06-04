@@ -1,72 +1,89 @@
 package com.cg.nutritionapp.model;
 
 import java.time.LocalDate;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
 @Entity
 public class WeightLog {
-	@Column(name = "UserId")
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
 	private Long userId;
 	/**
 	 * weight is of type double and store weight of user
 	 */
-	@Column(name="Weight")
+	
 	private Double weight;
 	/**
 	 * height is also of type double and stores height
 	 */
-	@Column(name="Height")
+	
 	private Double height;
 	/**
 	 * Stores date of updation of record.
 	 */
-	@Column(name="LastUpdated")
-	LocalDate updated_At;
+//	 @JsonFormat(pattern="MM/dd/yyyy")
+	public LocalDate updated_At;
 	
-	private Long getUserId() {
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Long getUserId() {
 		return userId;
 	}
-	private void setUserId(Long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	private Double getWeight() {
+	public Double getWeight() {
 		return weight;
 	}
-	private void setWeight(Double weight) {
+	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
-	private Double getHeight() {
+	public Double getHeight() {
 		return height;
 	}
-	private void setHeight(Double height) {
+	public void setHeight(Double height) {
 		this.height = height;
 	}
-	private LocalDate getUpdated_At() {
+	public LocalDate getUpdated_At() {
 		return updated_At;
 	}
-	private void setUpdated_At(LocalDate updated_At) {
+	public void setUpdated_At(LocalDate updated_At) {
 		this.updated_At = updated_At;
 	}
 	
 	public WeightLog() {
 		
 	}
-	public WeightLog(Long userId, Double weight, Double height, LocalDate updated_At) {
+	public WeightLog(int id,Long userId, Double weight, Double height, LocalDate updated_At) {
 		super();
+		this.id = id;
 		this.userId = userId;
 		this.weight = weight;
 		this.height = height;
 		this.updated_At = updated_At;
 	}
-	
 	@Override
 	public String toString() {
-		return "WeightLog [userId=" + userId + ", weight=" + weight + ", height=" + height + ", updated_At="
-				+ updated_At + "]";
+		return "WeightLog [id=" + id + ", userId=" + userId + ", weight=" + weight + ", height=" + height
+				+ ", updated_At=" + updated_At + "]";
 	}
+	
+	
 	
 }

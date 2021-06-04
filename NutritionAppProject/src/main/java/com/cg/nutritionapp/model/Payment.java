@@ -13,8 +13,9 @@ public class Payment {
 	/**
 	 * This field represent id of payment
 	 */
-	@Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name="payment_id")
-	private Long paymentId;
+	@Id 
+	@GeneratedValue(strategy = GenerationType.AUTO) 
+	private int paymentId;
 	/**
 	 * This field represent id of user for which payment is happening 
 	 */
@@ -26,7 +27,7 @@ public class Payment {
 	/**
 	 * This field represent amount of payment
 	 */
-	private Double amount;
+	public Double amount;
 	/**
 	 * This field represent discount amount for payment
 	 * never be negative
@@ -36,55 +37,64 @@ public class Payment {
 	/**
 	 * This field represent Date of payment
 	 */
-	private LocalDate paidDate;
-	private Long getPaymentId() {
+	public Double totalPrice;
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public LocalDate paidDate;
+	
+	public int getPaymentId() {
 		return paymentId;
 	}
-	private void setPaymentId(Long paymentId) {
+	public void setPaymentId(int paymentId) {
 		this.paymentId = paymentId;
 	}
-	private Long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
-	private void setUserId(Long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	private Long getPlanId() {
+	public Long getPlanId() {
 		return planId;
 	}
-	private void setPlanId(Long planId) {
+	public void setPlanId(Long planId) {
 		this.planId = planId;
 	}
-	private Double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
-	private void setAmount(Double amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
-	private Double getDiscount() {
+	public Double getDiscount() {
 		return discount;
 	}
-	private void setDiscount(Double discount) {
+	public void setDiscount(Double discount) {
 		this.discount = discount;
 	}
-	private LocalDate getPaidDate() {
+	public LocalDate getPaidDate() {
 		return paidDate;
 	}
-	private void setPaidDate(LocalDate paidDate) {
+	public void setPaidDate(LocalDate paidDate) {
 		this.paidDate = paidDate;
 	}
 	
 	public Payment() {
 		
 	}
-	public Payment(Long paymentId, Long userId, Long planId, Double amount, Double discount, LocalDate paidDate) {
+	public Payment(Long userId, Long planId, Double amount, Double discount, LocalDate paidDate, Double totalPrice) {
 		super();
-		this.paymentId = paymentId;
+
 		this.userId = userId;
 		this.planId = planId;
 		this.amount = amount;
 		this.discount = discount;
 		this.paidDate = paidDate;
+		this.totalPrice = totalPrice;
 	}
 	@Override
 	public String toString() {
