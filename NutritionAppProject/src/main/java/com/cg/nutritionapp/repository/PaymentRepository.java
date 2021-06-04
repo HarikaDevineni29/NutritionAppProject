@@ -1,5 +1,14 @@
 package com.cg.nutritionapp.repository;
 
-public interface PaymentRepository {
+import java.util.Optional;
 
-}
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.cg.nutritionapp.model.Payment;
+
+
+@Repository
+public interface PaymentRepository extends JpaRepository<Payment, Integer>{
+
+	}

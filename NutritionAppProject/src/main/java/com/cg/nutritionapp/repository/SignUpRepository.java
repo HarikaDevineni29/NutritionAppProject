@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cg.nutritionapp.model.SignUp;
 
 @Repository
-public interface SignUpRepository extends CrudRepository<SignUp, Long>{
+public interface SignUpRepository extends CrudRepository<SignUp, Integer>{
 
 }

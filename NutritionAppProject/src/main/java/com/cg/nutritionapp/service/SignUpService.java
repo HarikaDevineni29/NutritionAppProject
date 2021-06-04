@@ -1,17 +1,20 @@
 package com.cg.nutritionapp.service;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 
+import com.cg.nutritionapp.exceptions.UserException;
+import com.cg.nutritionapp.exceptions.ValidateUserException;
+import com.cg.nutritionapp.model.NutritionPlan;
 import com.cg.nutritionapp.model.SignUp;
 
 public interface SignUpService {
-	public ResponseEntity<?> createUser(SignUp newUser);
+	 SignUp addUser(SignUp signUp) throws UserException, ValidateUserException;
 
-	public SignUp updateUser(SignUp newUser);
+	 SignUp updateUser(SignUp signUp) throws ValidateUserException;
 
-	public String deleteUser(Long userId);
-
-	public Iterable<SignUp> displayAllUser();
-
-	public ResponseEntity<?> findUserById(Long userId);
+	 String deleteUser(SignUp signUp);
+	 SignUp getUser(SignUp signUp);
+	  List<SignUp> getNutritionPlans(NutritionPlan nutritionPlan);
 }
